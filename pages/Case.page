@@ -1,0 +1,24 @@
+<apex:page standardController="Case">
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"/>
+
+<!-- 
+<script>
+$j = jQuery.noConflict();
+$j(document).ready(function() {
+	alert("You're viewing Case: {!Case.Id}");
+});
+</script>
+-->
+	<apex:pageBlock mode="maindetail">
+		<apex:pageBlockSection Title="Full Case Age">
+			<apex:outputText >
+				{!Case.Id}
+			</apex:outputText>
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+	<apex:pageBlock mode="maindetail" >
+	<apex:pageBlockSection columns="1">
+	<apex:detail relatedList="true" showChatter="True" inlineEdit="True" relatedListHover="False"/>
+	</apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:page>

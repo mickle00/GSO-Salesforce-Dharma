@@ -1,0 +1,9 @@
+<apex:page controller="sitesVFCaseController" showheader="false" sidebar="false">
+  <apex:composition template="GSO_Template">
+    <apex:define name="body">  
+    <P class="headerText">Welcome!</P>
+    <p class="bodyText"> Thank you for your interest in either updating existing content or troubleshooting issues with your existing offer(s) on Expedia’s Destination Services (DS) website. Please fill out the below form completely, and your request will be routed to the DS Content team. Please note that resolution times vary by request type and issue complexity.</p>
+		<apex:include pageName="Input"/>
+    </apex:define>
+  </apex:composition>
+</apex:page>

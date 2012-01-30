@@ -1,0 +1,138 @@
+<apex:page controller="sitesVFCaseController" showHeader="false" sidebar="false" id="GSOTemplate">
+<html>
+<head>
+<title>GSOSalesforce</title>
+<apex:stylesheet value="{!URLFOR($Resource.PSGSalesforce, '/SpryMenuBarVerticalCSS.css')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.PSGSalesforce, '/PSGSFGlobalStyleCSS.css')}"/>
+<apex:stylesheet value="{!URLFOR($Resource.PSGSalesforce, '/PSGSFSecondaryStyleCSS.css')}"/>
+
+<apex:includeScript value="{!URLFOR($Resource.PSGSalesforce, '/JiffyStubs.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.PSGSalesforce, '/SpryMenuBarJS')}"/>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script>
+      // set no conflict
+      var j$ = jQuery.noConflict();
+      
+      //toggle the fields to be hidden
+      j$(document).ready(function(){
+        j$(".booking_date_fields").hide();
+        
+        // function to check change event on request type
+        j$(".request_type").change(function(){
+          // if value is what we want
+          if (j$(".request_type").val() == "Cannot locate offer on website") {
+            // toggle the fields to show
+            j$(".booking_date_fields").show();
+          }
+          else {
+            j$(".booking_date_fields").hide();
+          }
+        });
+        
+      });
+    </script>
+
+</head>
+<div id="wrapper">
+		<span id="j_id0:j_id6"> 
+		    <div id="header"> 
+		        <a href="/" title="Home"> 
+		        <apex:image url="{!URLFOR($Resource.PSGSalesforce, '/PSGSF_Header_Left.gif')}" onclick="window.location.href='/'"/>
+		        <apex:image url="{!URLFOR($Resource.PSGSalesforce, '/PSGSF_Header_Right.jpg')}" onclick="window.location.href='/'"/>
+		        </a> 
+		    </div>
+	    </span>	
+	<div id="container">
+			<span id="j_id0:j_id13"> 
+				<div id="leftSidebar" style="background-color:#e6f3ff"> 
+				<table border="0" cellpadding="0" cellspacing="0" id="navigation" width="198"><tr><td></td></tr></table>
+				<!-- MPS REMOVED 4/20/11 <table border="0" cellpadding="0" cellspacing="0" id="navigation" width="198"> 
+				    <tr bgcolor="#E6F3FF" valign="top"> 
+				    <td style="border-bottom: none;"> 
+				    <ul class="MenuBarVertical" id="MenuBar1" style="background-color:#E6F3FF"> 
+				    <li> 
+				    <a class="bodyText" href="/">Home</a>
+				    </li> 
+				    <li><a href="/Group1">Group A</a> 
+				        <ul> 
+				        <li><a href="/Group1/a">Group 1a</a></li> 
+				        <li><a href="/Group1/b">Group 1b</a></li> 
+				        <li><a href="/Group1/c">Group 1c</a></li> 
+				        <li><a href="/Group1/d">Group 1d</a></li>                  
+				        </ul> 
+				    </li>
+				    <li><a href="/Group1">Group B</a> 
+				        <ul> 
+				        <li><a href="/Group1/a">Group 1a</a></li> 
+				        <li><a href="/Group1/b">Group 1b</a></li> 
+				        <li><a href="/Group1/c">Group 1c</a></li> 
+				        <li><a href="/Group1/d">Group 1d</a></li>                  
+				        </ul> 
+				    </li>
+				    <li><a href="/Group1">Group 3</a> 
+				        <ul> 
+				        <li><a href="/Group1/a">Group 1a</a></li> 
+				        <li><a href="/Group1/b">Group 1b</a></li> 
+				        <li><a href="/Group1/c">Group 1c</a></li> 
+				        <li><a href="/Group1/d">Group 1d</a></li>                  
+				        </ul> 
+				    </li>
+				    <li><a href="/Group1">Group 4</a> 
+				        <ul> 
+				        <li><a href="/Group1/a">Group 1a</a></li> 
+				        <li><a href="/Group1/b">Group 1b</a></li> 
+				        <li><a href="/Group1/c">Group 1c</a></li> 
+				        <li><a href="/Group1/d">Group 1d</a></li>                  
+				        </ul> 
+				    </li>
+				    <li><a href="/Group1">Group 5</a> 
+				        <ul> 
+				        <li><a href="/Group1/a">Group 1a</a></li> 
+				        <li><a href="/Group1/b">Group 1b</a></li> 
+				        <li><a href="/Group1/c">Group 1c</a></li> 
+				        <li><a href="/Group1/d">Group 1d</a></li>                  
+				        </ul> 
+				    </li>
+				    <li><a href="/Group1">Item 6</a></li>        
+				    <li><a href="/Group1">Item 7</a></li>       
+				    <li><a href="/Group1">Item 8</a></li>       
+				    <li><a href="/Group1">Item 9</a></li>  
+				    <li><a href="/Group1">Item 10</a></li>  
+				    <li><a href="/Group1">Item 11</a></li>  
+				    <li><a href="/Group1">Item 12</a></li>             
+				     </ul>
+				     </td>
+				     </tr>
+				     </table> -->
+				</div> 
+		 
+		<script type="text/javascript"> 
+		var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgRight:"SpryMenuBarRightHoverGif.gif"});
+		</script>
+			</span>
+				<div id="content">    
+				    <apex:insert name="body">                
+				    </apex:insert>   
+				</div>	
+			<span id="j_id0:j_id21"> 
+				<div align="center" id="rightSidebar">
+				<apex:image url="{!URLFOR($Resource.PSGSalesforce, '/Logo_lockups.gif')}" />    
+				</div>
+			</span>          
+	</div>
+	
+		<span id="j_id0:j_id27"> 
+			<div id="footer"> 
+			    <p style="text-align:center;font-size:X-Small;font:Arial, Helvetica, sans-serif;"> 
+			    &copy; 2011 Expedia, Inc. All rights reserved.</p> 
+			</div>
+		</span> 
+</div>
+
+<script type="text/javascript"> 
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgRight:"SpryMenuBarRightHoverGif.gif"});
+</script>
+
+</html>
+</apex:page>

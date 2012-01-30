@@ -1,0 +1,21 @@
+<apex:page standardController="Team_SLA__c" extensions="TeamSLAController">
+
+<apex:pageBlock mode="maindetail" >
+	<apex:detail />
+	<apex:pageBlockSection columns="1">
+		
+	</apex:pageBlockSection>
+	<apex:pageBlockSection id="selectedTypes">
+		<apex:form >
+			<apex:commandButton action="{!addCaseType}" value="Add Case Type" rerender="selectedTypes"/>
+			<apex:inputField value="{!myCase.Type}" />
+		</apex:form>
+		<apex:repeat var="myType" value="{!selectedTypes}">
+			<apex:outputText value="{!myType}"/>
+			<br/>
+		</apex:repeat>
+	</apex:pageBlockSection>
+</apex:pageBlock>
+
+
+</apex:page>

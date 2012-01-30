@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Information related to the time a Case is open and being worked. Will store relevant details such as Case Age, Time with Support, Time with Customer, Time in New Status, calculated not only in true time, but also Business Time, as defined on the Case.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Age_in_Hours__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Case__r.IsClosed,Case__r.ClosedDate-Case__r.CreatedDate,NOW()-Case__r.CreatedDate) * 24</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Age in Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Hours_Earliest_SLA_Due_Date__c</fullName>
+        <description>Takes into consideration Business Hours, and also Time With Customer. The goal would be to recalculate every time the Status changes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>In the event the Status is currently not included in SLA time (e.g., &quot;Waiting for Information&quot;), this field will not be recalculated until the Status changes.</inlineHelpText>
+        <label>Business Hours Earliest SLA Due Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Case_Business_Hours_ID__c</fullName>
+        <description>Used by Apex Class to determine the difference in business hours. Using the formula fields removes the need for a SOQL query.</description>
+        <externalId>false</externalId>
+        <formula>Case__r.BusinessHoursId</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Business Hours ID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Closed__c</fullName>
+        <externalId>false</externalId>
+        <formula>If(Case__r.IsClosed, &quot;TRUE&quot;, &quot;FALSE&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Closed?</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Created_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case__r.CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Created Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Case_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Case__r.Status)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Status</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Case Time</relationshipLabel>
+        <relationshipName>Case_Times</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Current_Time_Included_in_SLA_Time__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Whether or not the current Case Status is a Stop Status as defined by the Custom Setting. This affects whether the time is considered &quot;Time with Support&quot; or &quot;Time with Customer&quot;
+
+
+if logged time changes, run is stop status method</description>
+        <externalId>false</externalId>
+        <label>Current Time Included in SLA Time?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>First_Handle_Time__c</fullName>
+        <description>The first time the Case moves out of the New status (also excludes Reply: Customer Email)</description>
+        <externalId>false</externalId>
+        <label>First Handle Time</label>
+        <summarizedField>Time_Log__c.In_Effect_Until__c</summarizedField>
+        <summaryFilterItems>
+            <field>Time_Log__c.New_Case_Status__c</field>
+            <operation>notEqual</operation>
+            <value>New, Reply: Customer Email</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Time_Log__c.Case_Time__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Hours_Excluded_From_SLA__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+     Case__r.IsClosed,
+     Logged_Hours_Excluded_From_SLA__c,
+     IF ( 
+           Current_Time_Included_in_SLA_Time__c,
+           Logged_Hours_Excluded_From_SLA__c,
+           Logged_Hours_Excluded_From_SLA__c + ((NOW() - Most_Recent_Change__c  )*24)
+     )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hours Excluded From SLA</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hours_Included_in_SLA_After_Handle__c</fullName>
+        <externalId>false</externalId>
+        <formula>Hours_Included_in_SLA__c - Logged_Hours_Until_First_Handle__c</formula>
+        <label>Hours Included in SLA After Handle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hours_Included_in_SLA__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+     AND(Current_Time_Included_in_SLA_Time__c,  Case__r.IsClosed),
+     Logged_Hours_Included_in_SLA__c,
+     Logged_Hours_Included_in_SLA__c + ((NOW() - Most_Recent_Change__c  )*24)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hours Included in SLA</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Logged_Age_in_Business_Hours__c</fullName>
+        <externalId>false</externalId>
+        <formula>Logged_Business_Hours_Included_in_SLA__c +  Logged_Business_Hours_Excluded_From_SLA__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Logged Age in Business Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Logged_Business_Hours_Excluded_From_SLA__c</fullName>
+        <externalId>false</externalId>
+        <label>Logged Business Hours Excluded From SLA</label>
+        <summarizedField>Time_Log__c.Business_Time_in_Hours__c</summarizedField>
+        <summaryFilterItems>
+            <field>Time_Log__c.Included_in_SLA_Time__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Time_Log__c.Case_Closed__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Time_Log__c.Case_Time__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Logged_Business_Hours_Included_in_SLA__c</fullName>
+        <externalId>false</externalId>
+        <label>Logged Business Hours Included in SLA</label>
+        <summarizedField>Time_Log__c.Business_Time_in_Hours__c</summarizedField>
+        <summaryFilterItems>
+            <field>Time_Log__c.Included_in_SLA_Time__c</field>
+            <operation>equals</operation>
+            <value>TRUE</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Time_Log__c.Case_Closed__c</field>
+            <operation>equals</operation>
+            <value>FALSE</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Time_Log__c.Case_Time__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Logged_Business_Hours_Until_First_Handle__c</fullName>
+        <externalId>false</externalId>
+        <label>Logged Business Hours Until First Handle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Logged_Hours_Excluded_From_SLA__c</fullName>
+        <externalId>false</externalId>
+        <label>Logged Hours Excluded From SLA</label>
+        <summarizedField>Time_Log__c.Time_in_Hours__c</summarizedField>
+        <summaryFilterItems>
+            <field>Time_Log__c.Included_in_SLA_Time__c</field>
+            <operation>equals</operation>
+            <value>FALSE</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Time_Log__c.Case_Closed__c</field>
+            <operation>equals</operation>
+            <value>FALSE</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Time_Log__c.Case_Time__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Logged_Hours_Included_in_SLA__c</fullName>
+        <externalId>false</externalId>
+        <label>Logged Hours Included in SLA</label>
+        <summarizedField>Time_Log__c.Time_in_Hours__c</summarizedField>
+        <summaryFilterItems>
+            <field>Time_Log__c.Included_in_SLA_Time__c</field>
+            <operation>equals</operation>
+            <value>TRUE</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Time_Log__c.Case_Closed__c</field>
+            <operation>equals</operation>
+            <value>FALSE</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Time_Log__c.Case_Time__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Logged_Hours_Until_First_Handle__c</fullName>
+        <externalId>false</externalId>
+        <formula>( First_Handle_Time__c - Case__r.CreatedDate) * 24</formula>
+        <label>Logged Hours Until First Handle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Logged_SLA_Buisness_Hours_Difference__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( 
+     ISBLANK( Case__r.Service_Level_Agreement__c ),
+     null,
+     Logged_Business_Hours_Included_in_SLA__c - SLA_in_Hours__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Logged SLA Business Hours Difference</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Logged_SLA_Business_Hours_After_Handle__c</fullName>
+        <externalId>false</externalId>
+        <formula>Logged_Business_Hours_Included_in_SLA__c  -  Logged_Business_Hours_Until_First_Handle__c</formula>
+        <label>Logged SLA Business Hours After Handle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Met_SLA__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+     ISBLANK(Case__r.Service_Level_Agreement__c),
+     &quot;No SLA Assigned&quot;,
+      IF(
+           Case__r.IsClosed,
+            IF(  
+                 Logged_Business_Hours_Included_in_SLA__c &lt; SLA_in_Hours__c,
+                 &quot;Yes&quot;,
+                 &quot;No&quot;
+            ),
+            &quot;Case is still Open&quot;
+      )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Met SLA?</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Most_Recent_Change__c</fullName>
+        <externalId>false</externalId>
+        <label>Most Recent Change</label>
+        <summarizedField>Time_Log__c.In_Effect_Until__c</summarizedField>
+        <summaryForeignKey>Time_Log__c.Case_Time__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>SLA_Hours_Difference__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( 
+ISBLANK( Case__r.Service_Level_Agreement__c ), 
+null,  
+Hours_Included_in_SLA__c  - SLA_in_Hours__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SLA Hours Difference</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SLA_in_Hours__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case__r.Service_Level_Agreement__r.Time_in_Hours__c</formula>
+        <label>SLA in Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ultimate_Parent_Case__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+       ISBLANK(Case__r.ParentId),
+       Case__r.CaseNumber,
+       IF(
+            ISBLANK(Case__r.Parent.ParentId),
+            Case__r.Parent.CaseNumber,
+            IF(
+                 ISBLANK(Case__r.Parent.Parent.ParentId),
+                 Case__r.Parent.Parent.CaseNumber,
+                 &quot;More than 2 levels of Parents&quot;
+           )
+       )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ultimate Parent Case</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unique_Key__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>false</externalId>
+        <label>Unique Key</label>
+        <length>18</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>X24x7_SLA_Due_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(
+     AND(Current_Time_Included_in_SLA_Time__c,  NOT(Case__r.IsClosed)),
+     Business_Hours_Earliest_SLA_Due_Date__c ,
+     Business_Hours_Earliest_SLA_Due_Date__c + ((NOW() - Most_Recent_Change__c ))
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>24x7 SLA Due Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <label>Case Time</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0000000000}</displayFormat>
+        <label>Case Time Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Case Times</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

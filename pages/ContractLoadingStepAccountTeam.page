@@ -1,0 +1,3 @@
+<apex:page standardController="Contract_Loading_Step__c" extensions="ContractLoadingStepAccountTeamExtension">
+  <c:AccountTeam extAccountId="{!accountId}"></c:AccountTeam>
+</apex:page>

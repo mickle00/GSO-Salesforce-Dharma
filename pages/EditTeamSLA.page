@@ -1,0 +1,35 @@
+<apex:page standardController="Team_SLA__c" extensions="TeamSLAController" cache="false">
+
+<apex:pageBlock mode="Edit" >
+	
+		<apex:pageBlockButtons >
+		<apex:form >
+				<apex:commandButton action="{!save}" value="Save"/>
+				<apex:commandButton action="{!cancel}" value="Cancel"/>
+			</apex:form>
+		</apex:pageBlockButtons>
+	<apex:form >
+	<apex:pageBlockSection Title="Team SLA">
+		<apex:inputField value="{!myTeamSLA.Team__c}"/>
+		<apex:inputField value="{!myTeamSLA.Service_Level_Agreement__c}"/>
+		<apex:inputField value="{!myTeamSLA.Priority__c}"/>
+	</apex:pageBlockSection>
+	</apex:form>
+	
+	<apex:form >
+	<apex:pageBlockSection Title="Case Types">		
+		<apex:inputField value="{!myCase.Type}" />
+		<apex:outputText value=""/>
+		<apex:commandLink action="{!addCaseType}" value="Add Case Type" rerender="selectedTypes"/>		
+	</apex:pageBlockSection>
+	</apex:form>
+	<apex:pageBlockSection id="selectedTypes" >
+		<apex:repeat var="myType" value="{!selectedTypes}">
+			<apex:outputText value="{!myType}"/>
+			<br/>
+		</apex:repeat>
+	</apex:pageBlockSection>
+</apex:pageBlock>
+
+
+</apex:page>

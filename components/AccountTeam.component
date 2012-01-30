@@ -1,0 +1,19 @@
+<apex:component controller="AccountTeamController" >
+  <apex:attribute name="extAccountId" description="" type="Id" required="true" assignTo="{!extAccountId}" />
+  <apex:pageBlock rendered="{!showPage == true}">
+    <apex:pageBlockSection columns="1" rendered="{!showTable == true}"  >
+      <apex:pageBlockTable value="{!AccountTeamMembers}" var="item" width="100%">
+        <apex:column value="{!item.PSG_User__r.name}" headerValue="Name" />
+        <apex:column value="{!item.Role__c}" />
+        <apex:column value="{!item.PSG_User__r.Email__c}" />
+        <apex:column value="{!item.PSG_User__r.Phone__c}" />
+      </apex:pageBlockTable>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection columns="1" rendered="{!showTable == false}"  >
+      <apex:outputText value="No Account Team members associated with this account." />
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+  <apex:pageBlock rendered="{!showPage == false}">
+    <apex:outputText value="No associated Account.  Cannot display Account Team unless an Account is associated." />
+  </apex:pageBlock>
+</apex:component>

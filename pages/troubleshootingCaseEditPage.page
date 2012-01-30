@@ -1,0 +1,33 @@
+<apex:page standardController="Case" extensions="troubleshootingCaseControllerExtension" showheader="false" sidebar="false">
+	<apex:form >
+	<apex:actionFunction action="{!UpdateRecords}" name="updateRecords" rerender="pageBlock" status="status"></apex:actionFunction>	
+	<apex:pageBlock title="Teams Involved" id="pageBlock">
+		<apex:pageblockbuttons >
+		  <apex:commandLink value="Save Teams" Style="text-decoration:none" StyleClass="btn" action="{!saveTeams}" target="_top" immediate="false"/>
+		  <apex:commandLink value="Cancel" Style="text-decoration:none" StyleClass="btn" action="{!cancelTeams}" target="_top" immediate="true"/>	
+		</apex:pageblockbuttons>	
+		<apex:pageBlockTable value="{!caseProcessTeams}" var="item">
+		  <apex:column >
+			  <apex:facet name="header">Name</apex:facet> 
+			  <apex:outputText value="{!item.Process_Team__r.Name}"/>
+		  </apex:column>
+		  <apex:column >
+			  <apex:facet name="header">Involved</apex:facet>		
+			  <apex:selectlist size="1" value="{!item.Involved__c}" required="true" onchange="updateRecords();">
+			   <apex:selectOptions value="{!IF(item.Involved__c == 'Owner', allOptions, InvolvementList)}"/>
+			  </apex:selectlist>
+		  </apex:column>		
+		  <apex:column >
+			  <apex:facet name="header">Ready to Close</apex:facet>
+			  <apex:selectlist size="1" value="{!item.Ready_to_Close__c}" onchange="updateRecords();" rendered="{!item.Involved__c == 'Yes (Not Owner)' || item.Involved__c == 'Owner'}" multiselect="false">
+			   <apex:selectOptions value="{!YNList}"/>
+			  </apex:selectlist>
+		  </apex:column>		  
+		  <apex:column >
+			  <apex:facet name="header">Additional Comments</apex:facet>
+			  <apex:inputTextArea value="{!item.Additional_Comments__c}" onchange="updateRecords();" style="width: 600px; height: 50px"/>
+		  </apex:column>
+		</apex:pageBlockTable>	
+	</apex:pageBlock>
+	</apex:form>
+</apex:page>

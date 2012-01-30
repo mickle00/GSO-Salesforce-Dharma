@@ -1,0 +1,49 @@
+<apex:page standardController="Case" extensions="CaseCloneExtension">
+<apex:sectionHeader title="Assign to Linguist" description="Select the languages you wish to assign to a linguist. Hold down the ctrl key to select multiple languages."/>
+<apex:pageMessages ></apex:pageMessages>
+<apex:form >
+    <apex:pageBlock mode="edit">
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Save" action="{!CloneCases}"/>
+            <apex:commandButton value="Cancel" action="{!Cancel}"/>
+        </apex:pageBlockButtons>
+        
+        <apex:pageBlockSection columns="1">
+            <apex:outputField value="{!Case.Subject}"/>
+            <apex:outputField value="{!Case.Description}"/>
+            <apex:pageblockSectionItem >
+                <apex:outputLabel value="Languages"></apex:outputLabel>
+                <apex:outputPanel >
+                    <div class="requiredInput">
+                    <div class="requiredBlock"></div>
+                    <apex:selectList multiselect="true" size="5" value="{!LanguagesSelected}">
+                        <apex:selectOptions value="{!Languages}"></apex:selectOptions>
+                    </apex:selectList>
+                    </div>
+                </apex:outputPanel>
+            </apex:pageblockSectionItem>
+            <apex:inputHidden value="{!Case.Description_Rich_Text__c}"/>
+            <apex:inputHidden value="{!Case.suppliedEmail}"/>
+            <apex:inputHidden value="{!Case.suppliedName}"/>
+            <apex:inputHidden value="{!Case.ContactId}"/>
+            <apex:inputHidden value="{!Case.AccountId}"/>
+            <apex:inputHidden value="{!Case.Status}"/>
+            <apex:inputHidden value="{!Case.Team__c}"/>
+            <apex:inputHidden value="{!Case.RecordTypeId}"/>
+            <apex:inputHidden value="{!Case.Origin}"/>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection columns="1" title="Related Cases" rendered="{!RelatedCases.size > 0}">
+            <apex:pageBlockTable value="{!RelatedCases}" var="item">
+                <apex:column value="{!item.CaseNumber}"/>
+                <apex:column value="{!item.Team__c}"/>
+                <apex:column value="{!item.Subject}"/>
+                <apex:column value="{!item.Priority}"/>
+                <apex:column value="{!item.CreatedDate}"/>
+                <apex:column value="{!item.Status}"/>
+                <apex:column value="{!item.OwnerId}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>
+    </apex:pageBlock>    
+</apex:form>
+</apex:page>

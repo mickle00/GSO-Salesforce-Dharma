@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Health and Safety Custom Object to capture information specific to Health and Safety Cases</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Health_Safety</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Additional_Information__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Information</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Audit_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Audit Date (Year)</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Audit_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Audit Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Admin Enquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Awaiting Admin Review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Audit</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Physical Audit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self Assessment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipName>Health_Safety</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Charge_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Charge Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Health &amp; Safety Audits</relationshipLabel>
+        <relationshipName>Health_Safety_Audits</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Cycle__c</fullName>
+        <externalId>false</externalId>
+        <label>Cycle</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cycle 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cycle 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cycle 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cycle 4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seasonal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Date_Gas_Reported__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Gas Reported</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Expedia_Hotel_Id__c</fullName>
+        <description>Used for creating new Audit records through integration.  This will associate the audit record with a hotel.  Not to be used for anything other that that.  Should not be visible on a layout</description>
+        <externalId>false</externalId>
+        <label>Expedia Hotel Id</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fire_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Fire Score</label>
+        <length>3</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gas_Safety_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Gas Safety Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Infosheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email/Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self Assessment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Physical Audit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Gas__c</fullName>
+        <externalId>false</externalId>
+        <label>Gas</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes - Individual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No - Centralized</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Gas</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Grade__c</fullName>
+        <externalId>false</externalId>
+        <label>Grade</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>H_S_Current_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Health &amp; Safety Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Assessed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self Assessment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Self Assessment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Physical Audit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Physical Audit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open Escalation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed Escalation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Language__c</fullName>
+        <externalId>false</externalId>
+        <label>Language</label>
+        <referenceTo>Language__c</referenceTo>
+        <relationshipName>Health_Safety</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Target_Group_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Target Group Name</label>
+        <picklist>
+            <picklistValues>
+                <fullName>APAC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Austria &amp; Switzerland</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Benelux</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Caribbean</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central/South America</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMAF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greece &amp; Turkey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Île-de-France</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mainland Spain</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MEIO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nordic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>North Italy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NorthEast NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NorthEastern Europe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NorthWest NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portugal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional France</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seasonal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ski</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South Italy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SouthEast NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SouthEastern Europe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SouthWest NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK &amp; Ireland</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Thing_Code__c</fullName>
+        <description>Id field from Checkpoint system.  Used to update existing audits via integration</description>
+        <externalId>false</externalId>
+        <label>Checkpoint Thing Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Buy In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commissioned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Free</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Access</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <label>Health &amp; Safety Audit</label>
+    <listViews>
+        <fullName>Health_and_Safety_Status</fullName>
+        <columns>NAME</columns>
+        <columns>Thing_Code__c</columns>
+        <columns>Account__c</columns>
+        <columns>H_S_Current_Status__c</columns>
+        <columns>Case__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Health_Safety_Audit__c.Health_Safety_Audit</value>
+        </filters>
+        <label>Health and Safety Status</label>
+    </listViews>
+    <nameField>
+        <displayFormat>HS-{00000}</displayFormat>
+        <label>Health &amp; Safety Audit Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Health &amp; Safety Audits</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Health_Safety_Audit</fullName>
+        <active>true</active>
+        <label>Health &amp; Safety Audit</label>
+        <picklistValues>
+            <picklist>Audit_Status__c</picklist>
+            <values>
+                <fullName>Admin Enquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Awaiting Admin Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Audit__c</picklist>
+            <values>
+                <fullName>Physical Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Assessment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cycle__c</picklist>
+            <values>
+                <fullName>Cycle 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seasonal</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Gas_Safety_Source__c</picklist>
+            <values>
+                <fullName>Email%2FFax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infosheet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physical Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Assessment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Gas__c</picklist>
+            <values>
+                <fullName>No - Centralized</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Gas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes - Individual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Grade__c</picklist>
+            <values>
+                <fullName>0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>H_S_Current_Status__c</picklist>
+            <values>
+                <fullName>Closed Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Assessed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Escalation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Physical Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Self Assessment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physical Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self Assessment</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Target_Group_Name__c</picklist>
+            <values>
+                <fullName>APAC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Austria %26 Switzerland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Benelux</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Caribbean</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central%2FSouth America</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMAF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greece %26 Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MEIO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mainland Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nordic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>North Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NorthEast NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NorthEastern Europe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NorthWest NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portugal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seasonal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ski</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SouthEast NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SouthEastern Europe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SouthWest NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK %26 Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Île-de-France</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Buy In</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commissioned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Free</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Access</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Case__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>H_S_Current_Status__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Thing_Code__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Audit_Date__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>H_S_Current_Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Thing_Code__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Audit_Date__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Thing_Code__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Audit_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Audit_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>H_S_Current_Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>New_Health_Safety_Audit</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>url</linkType>
+        <masterLabel>New Health &amp; Safety Audit</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>https://na8.salesforce.com/a0W/e? 
+&amp;RecordType=012C00000004Xf5
+&amp;CF00NC0000004yTEp={! Case.Account }
+&amp;CF00NC0000004yTEp_lkid={!Case.AccountId}
+&amp;CF00NC0000004yTEt_lkid={!Case.Id}
+&amp;CF00NC0000004yTEt={!Case.CaseNumber}
+&amp;CF00NC0000004yTEv={! Case.Contact}
+&amp;CF00NC0000004yTEv_lkid={!Case.ContactId}
+&amp;nooverride=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Health_Safety_Audit_Account</fullName>
+        <availability>online</availability>
+        <description>Account Related List Button</description>
+        <displayType>massActionButton</displayType>
+        <linkType>url</linkType>
+        <masterLabel>New Health &amp; Safety Audit</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>https://na8.salesforce.com/a0W/e?
+&amp;RecordType=012C00000004Xf5
+&amp;CF00NC0000004yTEp={!Account.Name }
+&amp;CF00NC0000004yTEp_lkid={!Account.Id }
+&amp;CF00NC0000004yTEv={!Account.H_S_Contact__c}
+&amp;CF00NC0000004yTEv_lkid={!Account.H_S_ContactId__c}
+&amp;nooverride=1
+&amp;retURL=%2F{!Account.Id }&amp;saveURL=%2F{!Account.Id }</url>
+    </webLinks>
+</CustomObject>

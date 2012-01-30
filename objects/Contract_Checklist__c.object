@@ -1,0 +1,2074 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contract Checklists</relationshipLabel>
+        <relationshipName>Contract_Checklists</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Adjust_Sort_Order_Value_To_APAC_Only__c</fullName>
+        <description>Sort order value</description>
+        <externalId>false</externalId>
+        <label>Adjust Sort Order Value To (APAC Only)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Booking_Notification_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Booking Notification Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ARI/BN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BN Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EQC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EQC/BN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Extranet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Checklist_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Checklist Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New-Reactivation/GDS to ESR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rate Sheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SBP Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Strategic Accounts – New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Strategic Accounts – Renewal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent - New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent - Renewal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Specialty Lodging - New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Specialty Lodging - Renewal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advanced Deposit Addendum</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DS Standard Agreement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DS Show Ticket Agreement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DS non Standard Agreement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DS Standard Hawaii</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DS Rate Update</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DS Renewal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Complete_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Complete Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Loading_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Loading Time</label>
+        <summarizedField>Contract_Loading_Step__c.Open_Time__c</summarizedField>
+        <summaryFilterItems>
+            <field>Contract_Loading_Step__c.Contract_Loading_Step__c</field>
+            <operation>equals</operation>
+            <value>In Approval Process, Ready to Load - Rate Sheet Only, Ready to Load - Contract, Contract Returned to MM/MC-See Comments, Contract Returned to Loading Team, Rejected - Returned to Loading, Requested ID&apos;s(Vendor or Expedia ID), Loading Contract, Contract Re</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Contract_Loading_Step__c.Contract_Checklist__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Manager_Loaded_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Manager Loaded by</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Manager_Upload_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Manager Upload Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contract_QA_Complete_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract QA Complete Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Ready_for_QA_Complete_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Ready for QA Complete Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Start_Loading_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Start Loading Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract Year</label>
+        <picklist>
+            <picklistValues>
+                <fullName>2007</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2008</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2009</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2010</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2011</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Cut_Off_Policy_Reason__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If the default setting (0) for Cut Off Policy was not selected, please provide a reason.</inlineHelpText>
+        <label>Cut Off Policy Reason</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Cut_Off_Policy__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>0 is the default setting</inlineHelpText>
+        <label>Cut Off Policy</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Date_ARI_Completed_Property_Activated__c</fullName>
+        <externalId>false</externalId>
+        <label>Date ARI Completed Property Activated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Additional_Inventory_Load_Complete__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Additional Inventory Load Complete</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_Addtional_Inventory_Was_Loaded__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Addtional Inventory Was Loaded</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_Data_Received_From_Chain__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Data Received From Chain</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Data_Upload_Requested_From_Chain__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Data Upload Requested From Chain</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_HIMS_Loaded__c</fullName>
+        <externalId>false</externalId>
+        <label>Date HIMS Loaded</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_ID_Requested__c</fullName>
+        <externalId>false</externalId>
+        <label>Date ID Requested</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_MM_Notified__c</fullName>
+        <externalId>false</externalId>
+        <label>Date MM Notified</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_Received_by_Loading_Team__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Received by Loading Team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Delete_All_Existing_Extranet_Accounts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates to contract loading if all existing extranet accounts should be deleted when loading this contract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Selecting this box will remove all existing extranet users from from the hotel account and a new &apos;etx&apos; account will be created. (This will not delete the previous extranet user account/s itself).</inlineHelpText>
+        <label>Delete All Existing Extranet Accounts</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Details_Instructions__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter here any additional information and instructions for the contract loading team, pay attention to non standard or approved changes and details to help the teams load the contract.</inlineHelpText>
+        <label>Details &amp; Instructions</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DocuSign_Completed__c</fullName>
+        <externalId>false</externalId>
+        <label>DocuSign Completed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DocuSign_Elapsed_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>(NOW() - DocuSign_Sent__c ) - (NOW() - DocuSign_Completed__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DocuSign Elapsed Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocuSign_Sent__c</fullName>
+        <externalId>false</externalId>
+        <label>DocuSign Sent</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DocuSign_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>DocuSign Status</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Docusign_Envelope_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Docusign Envelope ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Docusign_Mail_Received_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Docusign Mail Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Docusign_Mail_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Docusign Mail Received</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Due_to_Ownership_Change__c</fullName>
+        <externalId>false</externalId>
+        <label>Due to Ownership Change</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes/Bankruptcy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Duration_of_Inventory__c</fullName>
+        <description>How many years of rates and inventory the property signed up for with this contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How many years of rates and inventory the property signed up for with this contract.</inlineHelpText>
+        <label>Duration of Inventory (years)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ARI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>EQC_Addendum_Attached__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates if the EQC addendum is attached with the contract.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select this box to initiate a connectivity build for the hotel. Attach the EQC addendum in the SF account.</inlineHelpText>
+        <label>EQC Addendum Attached</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Elapsed_Days_with_MM__c</fullName>
+        <externalId>false</externalId>
+        <label>Elapsed Days with MM</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Expedia_Audit_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Expedia Audit Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Expedia_Audit_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Expedia Audit by</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>External_Contract_Id__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>Unique Id for contract in external system (PSG Salesforce)</description>
+        <externalId>true</externalId>
+        <label>External Contract Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>External_Contract_Number__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>External Contract Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>HIMS_Loaded_by__c</fullName>
+        <externalId>false</externalId>
+        <label>HIMS Loaded by</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ID_Creation_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>ID_Received_Date__c - Date_ID_Requested__c</formula>
+        <label>ID Creation Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ID_Loaded_By__c</fullName>
+        <externalId>false</externalId>
+        <label>ID Loaded By</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ID_Received_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>ID Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ID_Requested_By__c</fullName>
+        <externalId>false</externalId>
+        <label>ID Requested By</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ID_Requested__c</fullName>
+        <externalId>false</externalId>
+        <label>ID Requested</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Expedia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vendor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Both</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Id_Request_Time__c</fullName>
+        <description>Date id requested - docusign mail received date
+Modified label to Expedia ID Request TIme - 9/25/08 (as per Manish request)
+Modified formula, removed ROUND, added 2 decimal places - 9/30/08
+Modified formula, added test for Returned MM_MC_Date - 9/26/11</description>
+        <externalId>false</externalId>
+        <formula>IF( NULLVALUE(Returned_to_MM_MC_Date__c,NOW())  &lt;  Date_ID_Requested__c ,(Docusign_Mail_Received_Date__c -  Returned_to_MM_MC_Date__c  ), (Docusign_Mail_Received_Date__c -  Date_ID_Requested__c  ))</formula>
+        <inlineHelpText>Value in days, with weekends</inlineHelpText>
+        <label>Id  Request Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Date_of_Inventory_and_Rates__c</fullName>
+        <description>Last day that property is giving us inventory and rates.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If rates and availability have been provided for more than 2 years, this field will send a reminder to CL to load additional inventory when the system opens.</inlineHelpText>
+        <label>Last Date of Inventory on Rate Sheet</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Load_Contract_on_Stop_Sell__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Hotels will be loaded OPEN for sale, unless indicated here.  Select YES to load on stop sell.</inlineHelpText>
+        <label>Load Contract on Stop Sell?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Load_Lar_or_Net_Rate__c</fullName>
+        <description>LAR = Lowest Available Rates (Public rates) 
+Net = The amount Expedia pays the hotel for the room</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Determines if contract loading should load the rates provided in the R&amp;A as LAR or Net for new contracts or renewals.  For EMEA use only.</inlineHelpText>
+        <label>Load LAR or Net Rates (EMEA Only)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Net</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LAR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Loading_Contract_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Loading Contract Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>MM_MC_Returned_to_Loading_Team__c</fullName>
+        <externalId>false</externalId>
+        <label>MM/MC Returned to Loading Team</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>MM_Query_Response_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>MM Query Response Time</label>
+        <summarizedField>Contract_Loading_Step__c.Open_Time__c</summarizedField>
+        <summaryFilterItems>
+            <field>Contract_Loading_Step__c.Contract_Loading_Step__c</field>
+            <operation>equals</operation>
+            <value>Contract Returned to MM/MC-See Comments</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Contract_Loading_Step__c.Contract_Checklist__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>New_Account_Name__c</fullName>
+        <description>Allows for the entry of a new account name that will trigger an email to update the www.everestadmintool.com</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field for new contract submissions only. Notification will be sent to HDM.</inlineHelpText>
+        <label>New Account Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>New_Brand_Name__c</fullName>
+        <description>Allows for the input of a new brand name that will trigger an email to update the brand in www.everestadmintool.com</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Notification will be sent to HDM.</inlineHelpText>
+        <label>New Brand Name</label>
+        <referenceTo>Brand__c</referenceTo>
+        <relationshipLabel>Contract Checklists</relationshipLabel>
+        <relationshipName>Contract_Checklists</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PKG_Margin__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select your package margin percentage rate (10-75).</inlineHelpText>
+        <label>PKG Margin % (Req. EMEA, APAC, GSA)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No Package Margin</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>13</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>14</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>15</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>16</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>17</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>18</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>19</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>20</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>21</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>22</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>23</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>24</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>25</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>26</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>27</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>28</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>29</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>30</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>31</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>32</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>33</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>34</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>35</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>36</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>37</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>38</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>39</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>40</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>41</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>42</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>43</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>44</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>45</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>46</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>47</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>48</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>49</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>50</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>51</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>52</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>53</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>54</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>55</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>56</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>57</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>58</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>59</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>61</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>62</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>63</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>64</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>65</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>66</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>67</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>68</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>69</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>70</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>71</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>72</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>73</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>74</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>75</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PKG_Min_Margin_Amount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select a dollar amount. If your hotel has no dollar amount, enter in 0.00.</inlineHelpText>
+        <label>PKG Min $ Margin Amount</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>PSG_Checklist_Created_By__c</fullName>
+        <description>Lookup to User that created checklist in PSG Salesforce</description>
+        <externalId>false</externalId>
+        <label>PSG Checklist Created By</label>
+        <referenceTo>PSG_User__c</referenceTo>
+        <relationshipLabel>Contract Checklists</relationshipLabel>
+        <relationshipName>Contract_Checklists</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PSG_Checklist_Created_Date__c</fullName>
+        <description>Date checklist was created in PSG Salesforce</description>
+        <externalId>false</externalId>
+        <label>PSG Checklist Created Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>PSG_Checklist_Last_Modified_Date__c</fullName>
+        <description>Date checklist was last modified in PSG Salesforce</description>
+        <externalId>false</externalId>
+        <label>PSG Checklist Last Modified Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>PSG_Checklist_Last_Modifiied_By__c</fullName>
+        <description>User that last modified checklist in PSG Salesforce</description>
+        <externalId>false</externalId>
+        <label>PSG Checklist Last Modifiied By</label>
+        <referenceTo>PSG_User__c</referenceTo>
+        <relationshipLabel>Contract Checklists (PSG Checklist Last Modifiied By)</relationshipLabel>
+        <relationshipName>Contract_Checklists_Last_Modified</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Package_Rate_Information_Amer_Only__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Rate sheet - Enter package rates from the rate sheet 
+
+PPA - Enter a XX% package DRR from the PPA as indicated 
+
+No Action - Package DRRs or rate plans already established, no action required</inlineHelpText>
+        <label>Package Rate Information (Amer Only)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No Action</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PPA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rate Sheet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Currency__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Currency</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Armenian Dram (AMD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Australian Dollar (AUD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bahraini Dinar (BHD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brazilian Real (BRL)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Canadian Dollar (CAD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CFP Franc (XPF)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>China Yuan (Reminbi) (CNY)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colombian Peso (COP)-Limited Release</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Czech Koruna (CZK)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Danish Krone (DKK)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Euro (EUR)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fiji Dollar (FJD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Great Britian Pound Sterling (GBP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hong Kong Dollar (HKD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Iceland Krona (ISK)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indian Rupee (INR)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JapaneseYen (JPY)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Korean Won (KRW)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kuwaiti Dinar (KWD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Malaysian Ringitt (MYR)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maltese Lira (MTL)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mexican Peso (MXN)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Moroccan Dirham (MAD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Zealand Dollar (NZD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Norwegian Krone (NOK)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Omani Rial (OMR)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Philippine Peso (PHP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Poland Zloty (PLN)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Qatari Rial (QAR)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Russian Rouble (RUB)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saudi Arabian Riyal (SAR)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Singapore Dollar (SGD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South African Rand (ZAR)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Swedish Krona (SEK)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Swiss Franc (CHF)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taiwan Dollar (TWD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thai Baht (THB)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tunisian Dinar (TND)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Turkish Lira (TKL)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>United Arab Emirates Dirham (AED)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>US Dollar (USD)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Pricing_Model__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>PDP - Per Day Pricing 
+PPP - Per Person Pricing 
+OBP - Occupancy Based Pricing</inlineHelpText>
+        <label>Pricing Model</label>
+        <picklist>
+            <picklistValues>
+                <fullName>PDP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PPP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OBP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Property_Submitted_By_Contact2__c</fullName>
+        <externalId>false</externalId>
+        <label>Property Submitted By Contact2(EMM Only)</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Contract Checklists (Property Submitted By Contact2(EMM Only))</relationshipLabel>
+        <relationshipName>Contract_Checklists1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Submitted_By_Contact__c</fullName>
+        <description>Name of contact that submitted the property</description>
+        <externalId>false</externalId>
+        <label>Property Submitted By (EMM &amp; LATAM)</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Contract Checklists</relationshipLabel>
+        <relationshipName>Contract_Checklists</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property_Submitted_Ext_Acct_EMM_LATAM__c</fullName>
+        <externalId>false</externalId>
+        <label>Property Submitted Ext Acct(EMM &amp; LATAM)</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QC_By__c</fullName>
+        <externalId>false</externalId>
+        <label>QC By</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QC_Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>QC Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>RS_should_overrule_Rates_and_Inventory__c</fullName>
+        <externalId>false</externalId>
+        <label>RS should overrule Rates and Inventory</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Rates_and_Inventory_Already_Loaded__c</fullName>
+        <externalId>false</externalId>
+        <label>Rates and Inventory Already Loaded?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Rejected_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Rejected Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Rejected_Return_to_Loading_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Rejected Return to Loading Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Remove_All_Existing_Rate_Plans_Rooms__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Selecting the box will mean that all existing room types / rate plans will be deactivated.  Ensure you provide all required information to allow for new room types and rate plans to be loaded.</inlineHelpText>
+        <label>Remove All Existing Rate Plans/Rooms?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Remove_From_Package_Path__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Remove From Package Path?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Requested_ID_s_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Requested ID&apos;s Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Returned_to_MM_MC_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Returned to MM/MC Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SA_Margin__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select your margin percentage rate (10 - 75).</inlineHelpText>
+        <label>SA Margin % (Req. EMEA, APAC, GSA)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>13</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>14</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>15</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>16</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>17</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>18</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>19</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>20</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>21</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>22</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>23</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>24</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>25</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>26</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>27</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>28</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>29</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>30</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>31</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>32</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>33</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>34</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>35</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>36</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>37</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>38</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>39</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>40</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>41</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>42</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>43</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>44</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>45</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>46</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>47</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>48</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>49</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>50</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>51</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>52</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>53</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>54</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>55</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>56</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>57</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>58</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>59</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>61</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>62</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>63</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>64</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>65</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>66</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>67</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>68</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>69</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>70</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>71</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>72</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>73</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>74</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>75</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SA_Min_Margin_Amount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select a dollar amount. If your hotel has no dollar amount, enter in 0.00.</inlineHelpText>
+        <label>SA Min $ Margin Amount</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Set_up_EVC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates to if hotel is to be set up with EVC.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box if you want the hotel to be set up with EVC (Expedia Virtual Card).</inlineHelpText>
+        <label>Set up EVC</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Set_up_Expedia_Pay__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field indicates if a property is to be set up on Expedia pay</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box if you want the hotel to be set up with an Expedia Pay account.</inlineHelpText>
+        <label>Set up Expedia Pay</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Special_Cancellation_Policies__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Yes indicates you have non standard cancellation policies. Ensure these are clearly stated on the rate sheet and add information in the details and instructions field below.</inlineHelpText>
+        <label>Special Cancellation Policies?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready to Load - Rate Sheet Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready to Load - Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Returned to MM/MC-See Comments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Returned to Loading Team</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected - Returned to Loading</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Requested ID&apos;s(Vendor or Expedia ID)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loading Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Ready for QA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Loading Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Additional Inventory Load - Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready to Load Additional Inventory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sum_Returned_to_Loading__c</fullName>
+        <description>For the purposes of SLA calculation on MM Query Response Time</description>
+        <externalId>false</externalId>
+        <label>Sum Returned to Loading</label>
+        <summarizedField>Contract_Loading_Step__c.Open_Time__c</summarizedField>
+        <summaryFilterItems>
+            <field>Contract_Loading_Step__c.Contract_Loading_Step__c</field>
+            <operation>equals</operation>
+            <value>Contract Returned to Loading Team</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Contract_Loading_Step__c.Contract_Checklist__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Tax_ID_USA_properties_only__c</fullName>
+        <externalId>false</externalId>
+        <label>Tax ID(USA properties only)</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Load_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( 
+ROUND( 
+(Contract_Complete_Date__c - Contract_Start_Loading_Date__c) - 
+MOD(Contract_Complete_Date__c - Contract_Start_Loading_Date__c,1) 
+,0) 
+) 
+&amp;&quot; day(s), &quot;&amp; 
+TEXT( 
+ROUND( 
+MOD(Contract_Complete_Date__c - Contract_Start_Loading_Date__c,1)*24 - 
+MOD(MOD(Contract_Complete_Date__c - Contract_Start_Loading_Date__c,1)*24,1) 
+,0) 
+) 
+&amp;&quot; hour(s), &quot;&amp; 
+TEXT( 
+ROUND( 
+MOD(MOD(Contract_Complete_Date__c - Contract_Start_Loading_Date__c,1)*24,1) 
+*60 
+,0) 
+)&amp;&quot; minute(s)&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Load Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_MM_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( 
+ROUND( 
+(MM_MC_Returned_to_Loading_Team__c - Returned_to_MM_MC_Date__c) - 
+MOD(MM_MC_Returned_to_Loading_Team__c - Returned_to_MM_MC_Date__c,1) 
+,0) 
+) 
+&amp;&quot; day(s), &quot;&amp; 
+TEXT( 
+ROUND( 
+MOD(MM_MC_Returned_to_Loading_Team__c - Returned_to_MM_MC_Date__c,1)*24 - 
+MOD(MOD(MM_MC_Returned_to_Loading_Team__c - Returned_to_MM_MC_Date__c,1)*24,1) 
+,0) 
+) 
+&amp;&quot; hour(s), &quot;&amp; 
+TEXT( 
+ROUND( 
+MOD(MOD(MM_MC_Returned_to_Loading_Team__c - Returned_to_MM_MC_Date__c,1)*24,1) 
+*60 
+,0) 
+)&amp;&quot; minute(s)&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total MM Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Contract Checklist</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Checklist_Type__c</columns>
+        <columns>Status__c</columns>
+        <columns>External_Contract_Id__c</columns>
+        <columns>External_Contract_Number__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Status__c</columns>
+        <columns>Checklist_Type__c</columns>
+        <columns>Contract_Year__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{00000000}</displayFormat>
+        <label>Contract Checklist Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contract Checklists</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SA_Margin__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SA_Min_Margin_Amount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PKG_Margin__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>PKG_Min_Margin_Amount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Last_Date_of_Inventory_and_Rates__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>External_Contract_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Contract_Loading_Complete</fullName>
+        <active>true</active>
+        <description>Once a contract status has been set to Contact Loading Complete, it cannot be changed.</description>
+        <errorConditionFormula>AND(ISCHANGED( Status__c ), ISPICKVAL(PRIORVALUE( Status__c ), &quot;Contract Loading Complete&quot;), NOT(ISPICKVAL (Status__c, &quot;Contract Loading Complete&quot;)))</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>Status for completed contracts cannot be changed. Please send your request to hotelinfo@hotels.com for any changes</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cut_off_policy</fullName>
+        <active>true</active>
+        <description>The cut off policy reason field must be populated if the cut off policy is not 0</description>
+        <errorConditionFormula>AND( 
+NOT( 
+OR( 
+ISPICKVAL(Cut_Off_Policy__c, &quot;0&quot;), 
+ISBLANK(TEXT(Cut_Off_Policy__c)) 
+)), 
+ISBLANK( Cut_Off_Policy_Reason__c ) 
+)</errorConditionFormula>
+        <errorDisplayField>Cut_Off_Policy_Reason__c</errorDisplayField>
+        <errorMessage>Please provide a reason if Cut-Off Policy is not 0.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Property_Submitted_By_for_LATAM_Region</fullName>
+        <active>false</active>
+        <description>Require the Property Submitted By Contact field for properties in the LATAM Markets Region.</description>
+        <errorConditionFormula>AND( 
+ISNEW(), 
+OR( Account__r.Region__r.Name = &quot;Mexico &amp; Central America&quot;, 
+ Account__r.Region__r.Name =&quot;South America&quot;), 
+ISBLANK( Property_Submitted_By_Contact__c ), 
+OR( 
+ISPICKVAL(Checklist_Type__c , &quot;Independent - New&quot;), 
+ISPICKVAL(Checklist_Type__c , &quot;Specialty Lodging - New&quot;) 
+) 
+)</errorConditionFormula>
+        <errorDisplayField>Property_Submitted_By_Contact__c</errorDisplayField>
+        <errorMessage>New contracts for LATAM Properties require a Property Submitted By Contact</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Create_New_Contract_Checklist_Status_Record</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>url</linkType>
+        <masterLabel>Create New Contract Checklist Status Record</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>https://cs7.salesforce.com/a0V/e?</url>
+    </webLinks>
+</CustomObject>

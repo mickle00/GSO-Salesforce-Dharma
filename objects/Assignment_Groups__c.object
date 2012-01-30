@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to assign ownership of records users via Apex</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Active__c</fullName>
+        <description>If True, then include user in Round Robin assignments.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If False, then include user in Round Robin assignments.</inlineHelpText>
+        <label>Active</label>
+        <picklist>
+            <picklistValues>
+                <fullName>True</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>False</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Group_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Group Name</label>
+        <referenceTo>Assignment_Group_Name__c</referenceTo>
+        <relationshipName>Assignment_Groups</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Last_Assignment__c</fullName>
+        <defaultValue>NOW()</defaultValue>
+        <description>Last time case was assigned to this person</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Last time case was assigned to this person</inlineHelpText>
+        <label>Last Assignment</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Millisecond__c</fullName>
+        <externalId>false</externalId>
+        <label>Millisecond</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>IMAGE( 
+CASE(User_Active__c &amp; IF(ISPICKVAL(Active__c,&quot;True&quot;)=True,&quot;True&quot;,&quot;False&quot;), 
+&quot;TrueTrue&quot;, &quot;/img/samples/light_green.gif&quot;,
+&quot;/img/samples/light_red.gif&quot;), 
+&quot;status color&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>If Status and User Status are True</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User_Active__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(User__r.Assignment_Group_Active__c=True,
+     IF( User__r.IsActive=True,&quot;True&quot;,&quot;False&quot;) ,
+     &quot;False&quot;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>True if &quot;Assignment Group Active&quot; and &quot;Active&quot; fields on the user record are checked.  If True the users is available for this and all Assignment Groups.</inlineHelpText>
+        <label>User Active</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <externalId>false</externalId>
+        <label>User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>R00N30000002Yj6ZEAS</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Vacation_End__c</fullName>
+        <description>When the Queue member ends the vacation.</description>
+        <externalId>false</externalId>
+        <label>Vacation End</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Vacation_Start__c</fullName>
+        <description>When the queue member starts the vacation.</description>
+        <externalId>false</externalId>
+        <label>Vacation Start</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <label>Group Member</label>
+    <nameField>
+        <displayFormat>AG-{0000}</displayFormat>
+        <label>Assignment #</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Group Members</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Last_Assignment__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

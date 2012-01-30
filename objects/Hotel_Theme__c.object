@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object created to store hotel theme data</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Hotel_Themes</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Airport_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>All hotels with physical link to the airport or hotels with &quot;airport&quot; or equivalent in the name, provided they have shuttle service</inlineHelpText>
+        <label>Airport Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>All_inclusive_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>All hotels with an all-inclusive rate plan (includes minimum of food and drink, plus some activities offered at the hotel)</inlineHelpText>
+        <label>All-inclusive Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>All_suite_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>All rooms must be suites</inlineHelpText>
+        <label>All-suite Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Apartment_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>A self-contained housing unit that occupies part of a building. Types include studio or efficiency units and apartments with 1 or more bedrooms.  Laundry facilities are usually kept in a separate area accessible to all the tenants/guests in the building.</inlineHelpText>
+        <label>Apartment Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Beach_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Hotel guests must have reasonable walking access to beach/water (pathway/tunnels preferred).  Water view availability required.  No properties can be located between hotel &amp; water.</inlineHelpText>
+        <label>Beach Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Bed_and_Breakfast__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Also called a B &amp; B, this lodging is typically operated out of a large single family residence. Guests are accommodated at night in private bedrooms (which may or may not be equipped with private baths) and served breakfast in the morning.</inlineHelpText>
+        <label>Bed and Breakfast</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Boutique_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>No more than 150 rooms, not a big box chain
+Architecture &amp; design- style, distinction, warmth, intimacy, modern; historic elements with chic elegance
+Include:
+Kimpton
+Small Luxury Hotels Chain
+Joie de Vivre Hotels
+Leading Small Hotels of the World</inlineHelpText>
+        <label>Boutique Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Business_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Include:
+Hotels attached to conference centers
+Hotels with meeting rooms
+Hotels explicitly targeting business traveler in bold tagline
+
+Business hotels must offer:
+In-room internet access
+Access to fax/printer
+Daily newspaper</inlineHelpText>
+        <label>Business Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Casino_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Any hotel with Casino checked in the Property Amenities</inlineHelpText>
+        <label>Casino Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Countryside_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Rural location and significant hotel grounds, gardens, or distance to other buildings in a natural setting
+Relaxing setting</inlineHelpText>
+        <label>Countryside Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Design_Boutique_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Not more than 150 rooms, not a big box chain hotel
+Architecture &amp; design
+ - style, distinction, warmth, intimacy, modern,
+ - combining historic elements with chic elegance
+ - famous designer labeled</inlineHelpText>
+        <label>Design/Boutique Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Design_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Famous designer labeled properties
+
+Include:
+Sanderson
+Ian Schrager
+Morgan Hotels
+NH Hotels
+art&apos;otel
+Design Hotel
+W Hotel</inlineHelpText>
+        <label>Design Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Family_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatic: Bold tagline targeting families
+Or
+Must have 3: Cribs; Supervised childcare/activities; Playground; Child friendly pool; Family/shared rooms; Kitchen/kitchenette; Children&apos;s menu; Kids stay free (markets where rare); Games room; Baby monitor</inlineHelpText>
+        <label>Family Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Family_run_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Family-run Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Golf_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Properties with a 9+ hole golf course onsite (no par 3 courses)
+Properties adjacent to 18+ hole golf course – Must have official relationship with golf course - Hotel must have ability to book tee times and provide transportation to the site</inlineHelpText>
+        <label>Golf Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Gourmet_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Hotels attached to wineries
+
+Any hotels with restaurants with these ratings:
+Michelin: any rated restaurant
+Zagat 20-30
+Gault Millau: any rated restaurant 
+***Must serve specialty food or drinks***</inlineHelpText>
+        <label>Gourmet Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Green_Sustainable__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Meets World Heritage standards</inlineHelpText>
+        <label>Green/Sustainable</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Historic_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Historically significant (e.g. historic mansions, schloss, fortresses, etc.)
+Historic designation
+The following chains are automatically included:
+Relais Chateaux
+Fairmont
+Chateaux e Hotel du France
+Historic Hotels of America
+Pausadas
+Paradores</inlineHelpText>
+        <label>Historic Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Luxury_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>4.5 star and above</inlineHelpText>
+        <label>Luxury Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Pet_friendly_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Any hotel with Pets Accepted in its policy section</inlineHelpText>
+        <label>Pet-friendly Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Romantic_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Automatically includes:
+Couples only resorts; hotels in the luxury collection; hotels in the historic collection; TripAdvisor 75% rated pos. for couples/romantics or 75% rated pos. for amazing honeymoons
+Many more details apply; see policy</inlineHelpText>
+        <label>Romantic Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Self_Catering_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Kitchen/kitchenette in room or apartment (no shared kitchens)</inlineHelpText>
+        <label>Self-Catering Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Spa_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Must have a dedicated, full-service spa &amp; staff on site; at least 2 different massage treatments
+Must offer 3 of the following:
+Wraps/scrubs - 2 min; mani/pedi/facial - 2 min; Brand affiliation; private treatment rooms; sauna/steam room; Turkish bath</inlineHelpText>
+        <label>Spa Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sports_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Must have at least 4: Basketball; Football/Soccer Field; Tennis court; Badminton court;  Lg. gym; Golf; Pool; sports equipment; Table tennis; Bowling alley; Volleyball; Sailing; Other sports
+A hotel specializing in one sport extensively may be considered</inlineHelpText>
+        <label>Sports Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Theme__c</fullName>
+        <externalId>false</externalId>
+        <label>Theme</label>
+        <referenceTo>Theme__c</referenceTo>
+        <relationshipLabel>Hotel Themes</relationshipLabel>
+        <relationshipName>Hotel_Theme_Reviews</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Unique_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Must offer a unique, all-encompassing customer experience (think Ice Hotel)
+Unique structure
+Unique rooms, experience, etc.</inlineHelpText>
+        <label>Unique Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Villa_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Stand-alone structure -or-
+Property with standalone room categories</inlineHelpText>
+        <label>Villa Hotel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <label>Hotel Theme</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Account__c</columns>
+        <columns>Theme__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>HT-{0000}</displayFormat>
+        <label>Hotel Theme</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Hotel Themes</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER.ALIAS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_ACTIVITY</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATEDBY_USER.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LAST_ACTIVITY</lookupDialogsAdditionalFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>CREATEDBY_USER.ALIAS</searchFilterFields>
+        <searchFilterFields>CREATED_DATE</searchFilterFields>
+        <searchFilterFields>UPDATEDBY_USER.ALIAS</searchFilterFields>
+        <searchFilterFields>LAST_UPDATE</searchFilterFields>
+        <searchFilterFields>LAST_ACTIVITY</searchFilterFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_ACTIVITY</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

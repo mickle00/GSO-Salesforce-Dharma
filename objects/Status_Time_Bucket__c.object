@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Protected</customSettingsVisibility>
+    <description>The list of Statuses that are considered as &quot;Internal Status&quot;. Related to the Case Age in Business Hours app, moving away from a Custom Object and using Custom Setting to leverage caching, and not worry about SOQL queries.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Included_in_SLA_Time__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Included in SLA Time</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>The exact, *Case Sensitive* Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The exact, *Case Sensitive* Status</inlineHelpText>
+        <label>Status</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Time_Bucket__c</fullName>
+        <defaultValue>&quot;Not included in SLA&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Time Bucket</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Status Time Bucket</label>
+</CustomObject>

@@ -1,0 +1,113 @@
+<apex:page standardController="Case" extensions="troubleshootingCaseControllerExtension" showheader="false" sidebar="false">
+
+<style>
+.container
+{
+   overflow:auto;  
+   height:770px;  
+   align:bottom;
+}
+.workingTeam
+{
+  font-weight:bold;
+  background-color:#43BFC7;
+}
+.nonWorkingTeam
+{
+background-color:#FFFFFF;
+}
+.workingTeam100
+{
+  font-weight:bold;
+  background-color:#43BFC7;
+  width: 100px; 
+  height: 48px;
+}
+.nonWorkingTeam100
+{
+  font-weight:bold;
+  background-color:#FFFFFF;
+  width: 100px; 
+  height: 48px;
+}
+
+.workingTeam140
+{
+  font-weight:bold;
+  background-color:#43BFC7;
+  width: 140px; 
+  height: 48px;
+}
+.nonWorkingTeam140
+{
+  font-weight:bold;
+  background-color:#FFFFFF;
+  width: 140px; 
+  height: 48px;
+}
+
+.workingTeam600
+{
+  background-color:#43BFC7; 
+  width: 600px; 
+  height: 48px;
+}
+.nonWorkingTeam600
+{
+  background-color:#FFFFFF; 
+  width: 600px; 
+  height: 48px;
+}
+
+</style>
+
+<apex:form >
+<apex:actionFunction action="{!UpdateRecords}" name="updateRecords" rerender="pageBlock" status="status"></apex:actionFunction>	
+<apex:pageBlock title="Teams Involved" id="pageBlock">
+	<apex:pageblockbuttons >
+		<apex:commandButton value="Edit Team Involvement" action="{!editTeams}"/>
+		<apex:commandLink value="Pre-booking Teams Only" Style="text-decoration:none" StyleClass="btn" action="{!teamPreBooking}" target="_top" immediate="false"/>
+		<apex:commandLink value="Fulfillment Teams Only" Style="text-decoration:none" StyleClass="btn" action="{!teamFulfillment}" target="_top" immediate="false"/>
+						
+	</apex:pageblockbuttons>				
+	<apex:outputPanel layout="block" styleClass="container"  >		 
+		<center>
+			<apex:pageBlockTable value="{!caseProcessTeams}" var="item">
+			  <apex:column styleClass="{!IF(item.Involved__c == 'Yes (Not Owner)' || item.Involved__c == 'Owner', 'workingTeam','')}" >
+			   <apex:facet name="header">Name</apex:facet> 
+			   <apex:outputText value="{!item.Process_Team__r.Name}" style="{!IF(item.Involved__c == 'Yes (Not Owner)' || item.Involved__c == 'Owner', 'workingTeam','')}" />
+			  </apex:column>
+			  
+			  <apex:column styleClass="{!IF(item.Involved__c == 'Yes (Not Owner)' || item.Involved__c == 'Owner', 'workingTeam','')}">
+				  <apex:facet name="header">Involved</apex:facet>
+				  <apex:outputText value="{!item.Involved__c}"/>
+			  </apex:column>
+			  
+				<apex:column styleClass="{!IF(item.Involved__c == 'Yes (Not Owner)' || item.Involved__c == 'Owner', 'workingTeam','')}">
+				  <apex:facet name="header">Ready to Close</apex:facet>
+				  <apex:outputText value="{!item.Ready_to_Close__c}"  rendered="{!item.Involved__c == 'Yes (Not Owner)' || item.Involved__c == 'Owner'}"/>
+			  </apex:column>  
+			  
+			  <apex:column styleClass="{!IF(item.Involved__c == 'Yes (Not Owner)' || item.Involved__c == 'Owner', 'workingTeam600','nonWorkingTeam600')}">
+				  <apex:facet name="header">Additional Comments</apex:facet>
+				  <apex:outputField value="{!item.Additional_Comments__c}"/>  
+			  </apex:column>					
+			  
+			  <apex:column styleClass="{!IF(item.Involved__c == 'Yes (Not Owner)' || item.Involved__c == 'Owner', 'workingTeam100','nonWorkingTeam100')}">
+				  <apex:facet name="header">Last Modified By</apex:facet>
+				  <apex:outputText escape="false" value="{0}' '{1}" >
+				     <apex:param value="{!item.LastModifiedBy.FirstName}" />
+				     <apex:param value="{!item.LastModifiedBy.LastName}" />
+				  </apex:outputText>  
+			  </apex:column>					  
+			  
+			  <apex:column styleClass="{!IF(item.Involved__c == 'Yes (Not Owner)' || item.Involved__c == 'Owner', 'workingTeam140','nonWorkingTeam140')}">
+				  <apex:facet name="header">Last Updated</apex:facet>
+				  <apex:outputField value=" {!item.LastModifiedDate}" />
+			  </apex:column>					
+			</apex:pageBlockTable>		
+		</center>
+	</apex:outputPanel>
+	</apex:pageBlock>
+</apex:form>
+</apex:page>

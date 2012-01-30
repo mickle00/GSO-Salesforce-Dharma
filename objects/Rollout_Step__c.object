@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipName>Connectivity_Rollouts</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Completed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Completed Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Connection__c</fullName>
+        <externalId>false</externalId>
+        <label>Connection</label>
+        <referenceTo>Connection__c</referenceTo>
+        <relationshipName>Connectivity_Rollouts</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Created_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Created Date/Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Rollout_Step__c</fullName>
+        <externalId>false</externalId>
+        <label>Rollout Step</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Enrollment Form Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>First Enrollment Chaser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Second Enrollment Chaser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Third Enrollment Chaser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Enrollment Form Received</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mapping Information Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>First Mapping Chaser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Second Mapping Chaser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Third Mapping Chaser</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mapping Confirmation Received</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Soft Launch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <label>Rollout Step</label>
+    <nameField>
+        <displayFormat>{00000000}</displayFormat>
+        <label>Rollout Step Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Rollout Steps</pluralLabel>
+    <recordTypes>
+        <fullName>Connectivity</fullName>
+        <active>true</active>
+        <label>Connectivity</label>
+        <picklistValues>
+            <picklist>Rollout_Step__c</picklist>
+            <values>
+                <fullName>Enrollment Form Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Enrollment Form Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Enrollment Chaser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>First Mapping Chaser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mapping Confirmation Received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mapping Information Sent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Enrollment Chaser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Mapping Chaser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Soft Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Enrollment Chaser</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Mapping Chaser</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

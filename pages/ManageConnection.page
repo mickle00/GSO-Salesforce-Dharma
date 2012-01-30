@@ -1,0 +1,279 @@
+<apex:page standardController="Connection__c" extensions="ConnectionController">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"/>
+
+<!--  MOVE TO STATIC RESOURCE -->
+ <style> 
+.dateFormat{display:none;}
+
+.showHideConnections{
+width:100%;
+background: white;
+float:right;
+font-size:1.3em;
+}
+
+.center{
+margin-left:auto;
+margin-right:auto;
+width: 15em;
+padding-top:5px;
+padding-bottom:5px;
+}
+
+</style>
+<script>
+var j$ = jQuery.noConflict();
+
+function setFocusOnLoad(){}
+// did not like how the focus was going to the 1st field...seemed odd. this overrides
+
+function toggleHide(){
+    j$('[id$=existingConnections]').toggle('slow');
+    return false;
+}  
+</script>
+    <div class="center" style="width:100%">
+        <apex:pageMessages />
+    </div>
+    <apex:outputPanel id="allConnectionInfo">
+        <apex:sectionHeader title="Connection" subtitle="{!myConnection.Name}" rendered="{!myConnection.Id != null}"/>
+        <apex:sectionHeader title="Connection" subtitle="Manage Connection" rendered="{!myConnection.Id == null && myCase.AccountId != null}"/>    
+        <chatter:feedWithFollowers entityId="{!myConnection.Id}" />
+        <div id="existingConnectionsWrapper" class="existingConnectionsWrapper">    
+            <apex:form >
+                <apex:pageBlock rendered="{!RenderExistingConnections}" mode="edit" id="existingConnections">
+                    <apex:pageBlockSection id="accountConnectionsTable" columns="1" Title="{!accountName}'s Existing Connections">
+                        <apex:pageBlockTable value="{!accountConnections}" var="ac">                            
+                            <apex:column headerValue="Action">
+                                <apex:commandLink action="{!editConnection}" value="Manage">
+                                    <apex:param name="connectionId" assignTo="{!connectionIdToEdit}" value="{!ac.Id}"/>
+                                </apex:commandLink>
+                            </apex:column>
+                            <apex:column value="{!ac.Name}" headerValue="Number" width="80px" style="nowrap"/>                
+                            <apex:column value="{!ac.Status__c}"/>
+                            <apex:column value="{!ac.Connectivity_System__c}"/>                
+                            <apex:column value="{!ac.Connectivity_System__r.Connectivity_System_Type__c}" headerValue="System Type"/>
+                            <apex:column headerValue="Connectivity Vendor">
+                                <apex:outputLink value="/{!ac.Connectivity_System__r.Connectivity_Vendor__c}">
+                                    {!ac.Connectivity_System__r.Connectivity_Vendor__r.Name}
+                                </apex:outputLink>
+                            </apex:column>                
+                            <apex:column value="{!ac.Platform__c}"/>
+                            <apex:column value="{!ac.Type__c}"/>
+                            <apex:column value="{!ac.Go_Date__c}"/>
+                            <apex:column value="{!ac.LastModifiedDate}" width="15%"/>                
+                            <apex:column width="15%" style="text-align: left" headerValue="Last Modified By">
+                                <apex:outputText value="{!ac.LastModifiedBy.FirstName} {!ac.LastModifiedBy.LastName}"/>
+                            </apex:column>                
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+                <apex:outputText escape="false" rendered="{!RenderExistingConnections == false && accountName != null}" >
+                    <p style="font-size:1.3em"><b>{!accountName} has no existing connections</b></p>
+                </apex:outputText>
+                <div class="center">
+                    <apex:commandButton value="New Connection" action="{!createNewConnection}" rendered="{!myConnection.Id == null && myCase.AccountId != null}"/>
+                </div>
+            </apex:form> 
+        </div>   
+        <apex:outputPanel id="ConnectionDetails">       
+            <apex:form rendered="{!renderConnectionDetails}">
+                <apex:pageBlock mode="edit">           
+                    <apex:pageBlockButtons >  
+                        <apex:commandButton value="Save" action="{!Save}" reRender="allConnectionInfo"/>
+                        <apex:commandButton value="Cancel" action="{!Cancel}" immediate="true"/>                
+                        <apex:commandButton value="New Connection" action="{!createNewConnection}" rendered="{!originalCaseId != null}"/>
+                        <apex:commandButton value="Show/Hide Existing Connections" onclick="toggleHide()"  reRender="fakeArea" rendered="{!myConnection.Id != null}"/>
+                        <apex:commandButton value="Return to Case" action="{!returnToCase}" immediate="true" rendered="{!originalCaseId != null}"/>
+                    </apex:pageBlockButtons>           
+                    <apex:pageBlockSection columns="2" title="{!Title}">
+                        <apex:outputField value="{!myConnection.Account__c}" />
+                        <apex:inputField value="{!myConnection.Status__c}" required="true" />
+                        <apex:inputField value="{!myConnection.Connectivity_System__c}" />
+                        <apex:inputField value="{!myConnection.Platform__c}" required="true"/>   
+                        <apex:outputField value="{!myConnection.Connectivity_System__r.Connectivity_System_Type__c}" />                                     
+                        <apex:inputField value="{!myConnection.Type__c}" required="true"/>
+                        <apex:outputText rendered="{!AccountRepcoSize == 0}"/>
+                        
+                        <apex:pageBlockSectionItem rendered="{!AccountRepcoSize > 0}">
+                            <apex:outputLabel value="Repco" for="ars"></apex:outputLabel>
+                            <apex:selectList id="ars" value="{!myConnection.Account_Repco__c}" size="1" title="Repco">
+                                <apex:selectOptions value="{!availableAccountRepcos}"></apex:selectOptions>
+                            </apex:selectList>
+                        </apex:pageBlockSectionItem>
+                        <apex:inputField value="{!myConnection.Go_Date__c}" required="false"/>                                                        
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection title="Rollout Steps" columns="1">
+                        <apex:outputPanel id="rolloutStages">
+                            <table width="100%">
+                                <tr>
+                                    <th>Action:</th>
+                                    <th>Case Number:</th>
+                                    <th>Rollout Step:</th>
+                                    <th>Time Completed:</th>
+                                    <th>Owner Name:</th>
+                                </tr>                          
+                                <apex:repeat value="{!myConnectivityRollouts}" var="myConnectivityRollout" >
+                                    <tr>
+                                        <td style="height:10px; width:70px">
+                                            <apex:outputLink value="/{!myConnectivityRollout.Id}/e?retURL=/apex/ManageConnection?Id={!myConnection.Id}%26{!CaseQueryString}"
+                                                             rendered="{!myConnectivityRollout.Id != null}"
+                                                             title="Edit Rollout Step"> <!--  %26 to URL Encode '&' -->
+                                        
+                                            Edit
+                                            </apex:outputLink>
+        
+                                            <apex:outputText rendered="{!myConnectivityRollout.Id != null}"> 
+                                                &nbsp;|&nbsp; 
+                                            </apex:outputText>
+                                            <apex:commandLink action="{!deleteRolloutStep}" 
+                                                              value="Del" 
+                                                              rendered="{!myConnectivityRollout.Id != null}" 
+                                                              reRender="rolloutStages">
+                                                <apex:param name="rolloutStepToDelete" 
+                                                            value="{!myConnectivityRollout.Id}" 
+                                                            assignTo="{!rolloutStepToDelete}"/>
+                                            </apex:commandLink>
+                                            
+                                        </td> 
+                                        <td>
+                                            <apex:outputField value="{!myConnectivityRollout.Case__c}"/>
+                                        </td>
+                                        <td style="height:10px; width:314px">
+                                            <apex:inputField value="{!myConnectivityRollout.Rollout_Step__c}" required="true" rendered="{!myConnectivityRollout.Id == null}" styleClass="requiredInput"/>
+                                            <apex:outputField value="{!myConnectivityRollout.Rollout_Step__c}" rendered="{!myConnectivityRollout.Id != null}" /> &nbsp; &nbsp;
+                                        </td>
+                                        <td style="height:10px; width:314px">
+                                            <apex:outputField value="{!myConnectivityRollout.Completed_Date__c}" rendered="{!myConnectivityRollout.Id != null}" />
+                                            <apex:inputField value="{!myConnectivityRollout.Completed_Date__c}" required="false" rendered="{!myConnectivityRollout.Id == null}"/>
+                                        </td>
+                                        <td>                                                       
+                                            <apex:outputField value="{!myConnectivityRollout.Owner.Name}" rendered="{!myConnectivityRollout.Id != null}"/>
+                                            <apex:outputText value="{! $User.FirstName} {! $User.LastName}" rendered="{!myConnectivityRollout.Owner.Name == null}"/>
+                                        </td>
+                                    </tr> 
+                                </apex:repeat>
+                            </table>
+                        </apex:outputPanel>
+                    </apex:pageBlockSection>                    
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <apex:commandButton reRender="rolloutStages, removeStep" 
+                                   action="{!addRolloutStage}" 
+                                   value="Additional Rollout Step" 
+                                   styleClass="button" 
+                                   immediate="true"/>                  
+                    <apex:outputPanel id="removeStep">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <apex:commandButton reRender="rolloutStages, removeStep" 
+                                            action="{!removeRolloutStage}" 
+                                            value="Remove Last Rollout Step" 
+                                            styleClass="button" 
+                                            immediate="true" 
+                                            rendered="{!numberAdditionalRolloutSteps > 0}" />
+                    </apex:outputPanel>                
+                    <apex:pageBlockSection columns="1" title="Existing Notes" id="allNotes" rendered="{!myConnection.Id != null}">           
+                        <apex:repeat value="{!allNotes}" var="note" >
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Title:" for="noteTitle"/>
+                                <apex:outputField value="{!note.Title}" id="noteTitle" />
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Body:" for="noteBody"/>
+                                <apex:outputField value="{!note.Body}" id="noteBody" /> 
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Owner:" for="noteOwner"/>
+                                <apex:outputField value="{!note.Owner.Name}" id="noteOwner" /> 
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                                <apex:outputLabel value="Created Date:" for="noteCreatedDate"/>
+                                <apex:outputField value="{!note.CreatedDate}" id="noteCreatedDate" /> 
+                            </apex:pageBlockSectionItem>
+                            <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="" for="lineBreak"/>
+                                <apex:outputText value="----------------------------------" id="lineBreak" />
+                            </apex:pageBlockSectionItem>
+                        </apex:repeat>    
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1" title="(Optional) Add a Note" id="Notes">
+                        <apex:inputField value="{!myNote.title}" required="false" id="noteTitle" style="width:75%" />
+                        <apex:inputField value="{!myNote.body}" id="noteBody" style="width:75%; height:100px" />
+                    </apex:pageBlockSection>
+                </apex:pageBlock> 
+            </apex:form>
+        </apex:outputPanel>
+        
+        <!-- CONNECTION EMAILS SECTION -->      
+        <apex:pageBlock title="Connection Emails" rendered="{!myConnection.Id != null}" mode="edit">
+            <apex:pageBlockSection columns="1" title="New Email" collapsible="False">
+                <apex:form >             
+                    <apex:dataTable value="{!myEmailWidget}" var="em" style="width:100%">
+                        <apex:column headerValue="Hotel Contact:">
+                            <apex:selectList value="{!em.HotelContact}" size="1">               
+                                <apex:selectOptions value="{!em.HotelContacts}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Vendor Contact(s):" >
+                            <apex:selectCheckboxes value="{!em.selectedVendorContacts}" layout="pageDirection">
+                                <apex:selectOptions value="{!em.VendorContacts}"/>
+                            </apex:selectCheckboxes>
+                        </apex:column>      
+                        <apex:column headerValue="System Contact(s):">
+                            <apex:selectCheckboxes value="{!em.selectedSystemContacts}" layout="pageDirection">
+                                <apex:selectOptions value="{!em.SystemContacts}"/>
+                            </apex:selectCheckboxes>
+                        </apex:column>
+                        <apex:column headerValue="Account Team Member(s):">
+                            <apex:selectCheckboxes value="{!em.selectedAccountTeamMembers}" layout="pageDirection">
+                                <apex:selectOptions value="{!em.accountTeamMembers}"/>
+                            </apex:selectCheckboxes>
+                            <apex:outputLabel id="connectivity_account_manager_note" value="* Connectivity Account Manager will automatically be added." />
+                        </apex:column>          
+                    </apex:dataTable>
+                    <apex:dataTable value="{!myEmailWidget}" var="em" align="left" >
+                        <apex:column >
+                        	<apex:outputText escape="false">
+                        	&nbsp;
+                        	</apex:outputText>
+                        </apex:column>
+                        <apex:column headervalue="Template:" id="allTemplates">
+                            <apex:selectList value="{!em.Template}" size="1">           
+                                <apex:selectOptions value="{!em.Templates}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column >
+                            <apex:commandButton value="Create Email" action="{!em.sendConnectivityEmail}"/>
+                        </apex:column>
+                    </apex:dataTable>     
+                </apex:form>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Existing Emails" columns="1">
+                <apex:pageBlockTable value="{!allEmails}" var="email" rendered="{!AND(NOT(ISNULL(allEmails)),allEmails.size>0)}">
+                    <apex:column value="{!email.subject}" headerValue="Subject">
+                    </apex:column>
+                    <apex:column value="{!email.Description}" headerValue="Details">
+                    </apex:column>
+                    <apex:column value="{!email.ActivityDate}" headerValue="Email Date">
+                    </apex:column>      
+                </apex:pageBlockTable>          
+                <apex:outputPanel rendered="{!OR(ISNULL(allEmails),allEmails.size=0)}">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr class="headerRow">
+                            <th scope="col" class="noRowsHeader">
+                                <td>
+                                    No records to display
+                                </td>
+                            </th>
+                        </tr>
+                    </table>
+                </apex:outputPanel>
+            </apex:pageBlockSection>                
+        </apex:pageBlock>    
+    </apex:outputPanel>
+    <div class="center" rendered="{!myCase.Id != null}">  
+        <apex:form >
+            <apex:commandButton value="Return to Case" action="{!returnToCase}" immediate="true" rendered="{!myCase.AccountId == null && myCase.Id != null}"/>
+        </apex:form>
+    </div>
+</apex:page>

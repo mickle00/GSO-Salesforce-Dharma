@@ -1,0 +1,69 @@
+<apex:page controller="sitesVFCaseController" showHeader="false" sidebar="false">
+  
+<apex:form >                 
+	<apex:panelGrid columns="2">
+		<apex:outputText value="Case Number: " style="font-weight:bold"/>
+		<apex:outputText value="{!oldcase.casenumber}"/>
+		<apex:outputText value="Time Submitted: " style="font-weight:bold"/>
+		<apex:outputField value="{!oldcase.createddate}"/> 
+		<apex:outputText value="Submitted By: " style="font-weight:bold" />
+		<apex:outputText value="{!oldcase.suppliedname}"/>
+		<apex:outputText value="Company: " style="font-weight:bold"/>
+		<apex:outputText value="{!oldcase.suppliedcompany}"/>
+		<apex:outputText value="Email: " style="font-weight:bold"/>
+		<apex:outputText value="{!oldcase.suppliedemail}"/>
+		
+		<apex:outputText value="Request Type: " style="font-weight:bold"/>
+		<apex:outputText value="{!oldcase.type}"/>
+		
+		<apex:outputText value="Activity Name: " style="font-weight:bold"/>
+		<apex:outputText value="{!oldcase.Offer_Name__c}"/>
+		
+		<apex:outputText value="OFID: " style="font-weight:bold"/>
+		<apex:outputText value="{!oldcase.OFID__c}"/>
+		
+		<apex:outputText value="Priority: " style="font-weight:bold"/>
+		<apex:outputText value="{!oldcase.Priority}"/>
+						
+		<apex:outputText value="Subject: " style="font-weight:bold"/>
+		<apex:outputText value="{!oldcase.subject}"/>
+		<apex:outputText value="Details: " style="font-weight:bold"/>
+		<apex:outputText value="{!oldcase.description}"/>
+	</apex:panelGrid>
+	<br/>
+         
+		<apex:outputText value="Attachments" style="font-weight:bold; text-decoration:underline"/><br/>          
+		<apex:outputText value="None" style="font-style:italic" rendered="{!AttachedSize == 0}"/>
+     
+	<apex:repeat value="{!attachInsert}" var="newAtt">	
+		<apex:outputText value="File Name: " style="font-weight:bold" rendered="{!newAtt.name != NULL}"  />				 
+		<apex:outputText escape="false" value="{!newAtt.name} <br>" rendered="{!newAtt.name != NULL}"/>					 	
+	</apex:repeat>
+    
+    <center> 
+		<!--  <apex:commandButton action="{!pdf}" value="View Case as PDF" styleClass="btn" />--> </center>
+	<br></br>    
+    <font color="red">
+			<apex:outputText value="Attachments Not Uploaded" style="font-weight:bold; text-decoration:underline" rendered="{!ShouldIRender}"/><br/>          
+		<apex:repeat value="{!attachIgnore}" var="ignAtt">	
+			<apex:outputText value="File Name: " style="font-weight:bold" />				 
+			<apex:outputText escape="false" value="{!ignAtt.name} <br>" rendered="{!ignAtt.name != NULL}"/>											 	
+		</apex:repeat>	      			
+	</font>	
+			
+	<apex:outputpanel rendered="{!ShouldIRender}" >
+		<center>
+		<font color="red"> 
+			<br/>
+			<apex:outputText value="One of the files was an improper file type, or was over 5mb. Feel free to upload a different file."/> 
+		</font>
+		<br/><br/>          
+		<apex:repeat value="{!newAttachments}" var="newAtt">
+			<apex:inputFile value="{!newAtt.body}" filename="{!newAtt.name}" /><br/>					
+		</apex:repeat>
+		<br/>
+		<apex:commandButton action="{!save}" value="Upload Additional Attachment" styleClass="btn"/>
+		</center>			
+	</apex:outputpanel>	    
+</apex:form> 
+</apex:page>

@@ -1,0 +1,52 @@
+<apex:page standardController="Contract_Loading_Step__c" extensions="ContractLoadingStepAccountTeamExtension">
+  <apex:form >
+    <apex:pageBlock >
+      <apex:pageBlockButtons >
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:commandButton value="Cancel" action="{!cancel}"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="Contract Loading Step Detail" id="user_data">
+        <apex:inputField value="{!Contract_Loading_Step__c.Name}" />
+        <apex:inputField value="{!Contract_Loading_Step__c.Contract_Checklist__c}" />
+        <apex:outputField value="{!Contract_Loading_Step__c.Contract_Loading_Step__c}" />
+        <apex:outputField value="{!Contract_Loading_Step__c.Status__c}" />
+        <apex:inputField value="{!Contract_Loading_Step__c.Subject__c}" style="width:100%"/>
+        <apex:inputField value="{!Contract_Loading_Step__c.Type_of_Query__c}" />
+      </apex:pageBlockSection>
+      <apex:pageBlockSection columns="1">
+        <apex:inputField value="{!Contract_Loading_Step__c.Comments_Remarks__c}" style="width:100%"/> 
+      </apex:pageBlockSection>     
+      <apex:pageBlockSection id="myUser" title="Account Team Member Assigned">
+        <apex:pageBlockSectionItem >
+        <apex:outputLabel >Account Team Member</apex:outputLabel>
+          <apex:outPutField value="{!myContractLoadingStep.PSG_User__c}" />
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+      <apex:pageBlockSection title="Checklist Creator" columns="1"> 
+        <apex:pageBlockTable value="{!ChecklistCreators}" var="item" width="100%">
+          <apex:column >
+            <apex:commandButton action="{!userRole}" value="Assign" id="assignCmdLink" reRender="myUser">
+              <apex:param name="psgUser" value="{!item.Id}" />
+            </apex:commandButton>
+          </apex:column>
+          <apex:column value="{!item.Name}" headerValue="Name" />
+          <apex:column value="{!item.Email__c}" />
+          <apex:column value="{!item.Phone__c}" />
+        </apex:pageBlockTable>
+      </apex:pageBlockSection>
+      <apex:pageBlockSection title="Account Team Members" columns="1"> 
+        <apex:pageBlockTable value="{!AccountTeamMembers}" var="item" width="100%">
+          <apex:column >
+            <apex:commandButton action="{!userRole}" value="Assign" id="assignCmdLink" reRender="myUser">
+              <apex:param name="psgUser" value="{!item.PSG_User__c}" />
+            </apex:commandButton>
+          </apex:column>
+          <apex:column value="{!item.PSG_User__r.name}" headerValue="Name" />
+          <apex:column value="{!item.Role__c}" />
+          <apex:column value="{!item.PSG_User__r.Email__c}" />
+          <apex:column value="{!item.PSG_User__r.Phone__c}" />
+        </apex:pageBlockTable>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

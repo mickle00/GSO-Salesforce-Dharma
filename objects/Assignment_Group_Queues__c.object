@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Active__c</fullName>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <picklist>
+            <picklistValues>
+                <fullName>True</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>False</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Assignment_Group_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Assignment Group Name</label>
+        <referenceTo>Assignment_Group_Name__c</referenceTo>
+        <relationshipName>Assignment_Group_Queues</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>QueueId__c</fullName>
+        <description>Auto-populated via trigger to lookup Queue Id by Queue Name. Internal Apex usage.</description>
+        <externalId>false</externalId>
+        <label>QueueId</label>
+        <length>18</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Valid_Queue__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Valid Queue</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>AG-Queue</label>
+    <nameField>
+        <label>Queue Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>AG-Queues</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Queue_Name_is_Unique</fullName>
+        <active>false</active>
+        <errorConditionFormula>if( ISCHANGED(  Name ), 
+       IF( len(VLOOKUP(  $ObjectType.Assignment_Group_Queues__c.Fields.Name,    $ObjectType.Assignment_Group_Queues__c.Fields.Name , Name ))&gt;0,
+               True,
+               False),
+       False
+)</errorConditionFormula>
+        <errorMessage>Queue already belongs to an Assignment Group.  Please remove from Assignment Group or choose another Queue</errorMessage>
+    </validationRules>
+</CustomObject>

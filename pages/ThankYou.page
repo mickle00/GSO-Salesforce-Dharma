@@ -1,0 +1,9 @@
+<apex:page controller="sitesVFCaseController" showheader="false" sidebar="false">
+<Title>Thanks!</Title>
+  <apex:composition template="GSO_Template">
+    <apex:define name="body">  
+    	<P class="headerText">{!oldcase.suppliedname}, thank you for submitting case number: {!oldcase.casenumber}. Please retain this information for your records.</P>
+		<apex:include pageName="CaseThankYou"/>
+    </apex:define>
+  </apex:composition>
+</apex:page>

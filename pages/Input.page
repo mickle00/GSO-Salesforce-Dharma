@@ -1,0 +1,104 @@
+<apex:page showheader="false" sidebar="false" controller="sitesVFCaseController">
+ <style>
+.dateFormat{display:none;}
+</style> 
+<center><font color="red"><em>*</em></font>Indicates a required field</center>
+
+
+<apex:form id="theForm">
+           <table align="center">
+            <tr>
+               <td>Your Name:<font color="red"><em>*</em></font>&nbsp;</td>
+               <td><apex:inputField value="{! case.SuppliedName}" required="true" style="width: 300px"/></td>
+            </tr>           
+            <tr>
+                <td>Your Company Name:&nbsp;<font color="red"><em>*</em></font>&nbsp;</td> 
+                <td><apex:inputField value="{! case.SuppliedCompany}" required="true" style="width: 300px"/></td>
+            </tr>
+            <tr>
+                <td>Your Email:<font color="red"><em>*</em></font>&nbsp;</td>
+                <td><apex:inputField value="{! case.SuppliedEmail}" required="true" style="width: 300px"/></td>
+            </tr>
+            <!-- 
+            <tr>
+                <td>Request Type:<font color="red"><em>*</em></font>&nbsp;</td>
+                <td><apex:inputField styleClass="request_type" value="{! case.Type}" style="width: 305px" required="true">
+                </apex:inputField>
+                </td>                    
+            </tr>
+            -->
+             <tr>
+            	<td>Request Type:<font color="red"><em>*</em></font>&nbsp;</td>
+            	<td><apex:selectlist size="1" styleClass="request_type" value="{!case.Type}" style="width: 305px" required="true">
+            	<apex:selectOptions value="{!TypeList}"/>            	
+            	</apex:selectlist>
+            	<apex:outputText escape="false" rendered="{!IF((Case.Type == '' || Case.Type == NULL || Case.Type == '--None--') && TypeError == true, 'true', 'false')}">
+            	<div class="errorMsg"><strong>Error:</strong> You must enter a value</div>
+				</apex:outputText>				        	
+            	</td>
+            </tr>	
+            <tr class='booking_date_fields'>
+	            <td>Path:&nbsp;</td>
+	            <td><apex:inputField value="{!case.Path__c}" style="width: 305px"/>          
+	            </td>            
+            </tr>
+            
+            <tr class='booking_date_fields'>
+	            <td>Search booking date start: <i>(MM/DD/YY)</i> &nbsp;</td>
+	            <td> <apex:inputField value="{!case.Search_booking_date_start__c}" style="width: 300px"/></td>            
+            </tr>
+            <tr class='booking_date_fields'>
+	            <td>Search booking date end: <i>(MM/DD/YY)</i>&nbsp;</td>
+              <td> <apex:inputField value="{!case.Search_booking_date_end__c}" style="width: 300px"/></td>            
+            </tr>
+            <tr>
+            	<td>Activity Name:&nbsp;<font color="red"><em>*</em></font>&nbsp;</td>
+            	<td><apex:inputField value="{! case.Offer_Name__c}" required="true" style="width: 300px" /></td>
+            </tr>
+                      
+            <tr>
+            	<td>OFID <i>(if known)</i>:&nbsp;</td>
+            	<td><apex:inputField value="{! case.OFID__c}" style="width: 300px" /></td>
+            </tr>
+            
+             <!-- <tr>
+            	<td>Priority:&nbsp;</td>
+            	<td><apex:inputField value="{! case.Priority}" style="width: 300px" /></td>
+            </tr> -->   
+             <tr>
+            	<td>Priority:&nbsp;</td>
+            	<td><apex:selectlist size="1" value="{!case.Priority}" style="width: 305px">
+            	<apex:selectOptions value="{!PriList}"/>            	
+            	</apex:selectlist></td>
+            </tr> 
+            
+                     
+            <tr>
+            	<td>Subject:&nbsp;<font color="red"><em>*</em></font>&nbsp;</td>
+            	<td><apex:inputField value="{! case.Subject}" required="true" style="width: 300px" /></td>
+            </tr>
+            <tr>
+                <td>Details:&nbsp;<font color="red"><em>*</em></font>&nbsp;</td>
+                <td><apex:inputField value="{! case.Description}" required="true" style="width: 300px; height: 200px"/></td>
+            </tr>
+            <apex:inputHidden value="{!case.Origin}" id="hiddenField"/>       
+            </table>
+            
+            <center><i>
+            <br/><u>Optional:</u><br/>
+            Attach up to 5 files. Individual attachments larger than 5mb will be ignored. </i><br/>
+			<apex:repeat value="{!newAttachments}" var="newAtt">
+			<!--  can use inputFile accept = "image/gif, image/jpeg"  etc to explitily call for values; however  According to W3C : "The accept attribute is not properly supported by any of the major browsers."-->							 
+				 <apex:inputFile value="{!newAtt.body}" filename="{!newAtt.name}" id="file"/><br/> 					
+			</apex:repeat>			
+            <br/> 
+            
+			<apex:commandButton action="{!save}" value="Submit Case" styleClass="btn" />
+			</center><br/>  
+			
+			<script>
+        	document.getElementById('{!$Component.theForm}').elements['{!$Component.hiddenField}'].value = 'Intake Form';
+      		</script>    
+    </apex:form>
+
+</apex:page>

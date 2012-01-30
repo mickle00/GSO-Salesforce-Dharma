@@ -1,0 +1,8 @@
+<apex:page standardController="Contact">
+
+<script>
+var myAddy = "{!URLENCODE(Contact.Mailing_Street__c)}";
+alert(myAddy);
+</script>
+
+</apex:page>
